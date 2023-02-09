@@ -1,2 +1,2 @@
 #!/bin/bash
-echo -e "$(dirname $(realpath "${BASH_SOURCE:-$0}"))\n"
+echo -e pwd /n
