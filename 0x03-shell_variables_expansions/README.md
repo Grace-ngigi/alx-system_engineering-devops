@@ -7,3 +7,4 @@ What each Script does:
 5-local_variables - lists all local vars, env vars and functions
 6-create_local_variable - creates a new local variable
 7-create_global_variable - creates a new global variable
+8-true_knowledge - prints the result of an addition expression
