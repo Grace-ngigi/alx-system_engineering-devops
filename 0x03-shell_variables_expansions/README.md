@@ -10,3 +10,4 @@ What each Script does:
 8-true_knowledge - prints the result of an addition expression
 9-divide_and_rule - prints result of POWER divide by DIVIDE
 10-love_exponent_breath - print result of BREATH to the power of LOVE
+11-binary_to_decimal - converts a number from base 2 to base 10
