@@ -8,3 +8,4 @@ What each Script does:
 6-create_local_variable - creates a new local variable
 7-create_global_variable - creates a new global variable
 8-true_knowledge - prints the result of an addition expression
+9-divide_and_rule - prints result of POWER divide by DIVIDE
