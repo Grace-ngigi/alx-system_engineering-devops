@@ -9,3 +9,4 @@ What each Script does:
 7-create_global_variable - creates a new global variable
 8-true_knowledge - prints the result of an addition expression
 9-divide_and_rule - prints result of POWER divide by DIVIDE
+10-love_exponent_breath - print result of BREATH to the power of LOVE
