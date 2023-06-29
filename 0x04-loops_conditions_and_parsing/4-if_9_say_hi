@@ -1,11 +1,11 @@
 #!/usr/bin/env bash
 #add a condition wwhile printing a phrse 10 times using while loop
 var=0
-while [ $var -le 10 ]
+while [ $var -lt 10 ]
 do
 	if [ $var -eq 9 ]
 	then
-	echo "Hi"
+		echo "Hi"
 	fi
 	echo "Best School"
 	((var++))
