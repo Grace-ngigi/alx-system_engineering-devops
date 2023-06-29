@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+#print a phrase 10 times using until loop
+var=0
+until [ $var -le 10 ]
+do
+	echo "Best School"
+	((var++))
+done
