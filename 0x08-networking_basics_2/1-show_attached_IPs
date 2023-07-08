@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+#display active ipv4 addresses
+interfaces=$(ifconfig -s | awk '{print $1}')
