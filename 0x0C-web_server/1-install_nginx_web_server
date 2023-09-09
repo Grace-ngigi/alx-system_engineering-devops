@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-
+# configure Nginx
 # Update package index
 sudo apt-get update
 
