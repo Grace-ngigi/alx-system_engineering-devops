@@ -1,0 +1,16 @@
+#!/usr/bin/bash
+# Installing mysql on th server
+# Update the package list
+apt update
+
+# Install MySQL server and client packages
+apt install -y mysql-server mysql-client
+
+# Start MySQL service
+systemctl start mysql
+
+# Enable MySQL to start on boot
+systemctl enable mysql
+
+# Secure MySQL installation
+mysql_secure_installation

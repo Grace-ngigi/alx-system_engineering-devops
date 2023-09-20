@@ -1,0 +1,3 @@
+Host 3.80.18.42
+    IdentityFile /root/alx-system_engineering-devops/0x0B-ssh/school
+    PasswordAuthentication no
