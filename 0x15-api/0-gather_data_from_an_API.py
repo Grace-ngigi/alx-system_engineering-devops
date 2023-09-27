@@ -2,8 +2,8 @@
 """
 Collects data from a given api and display it
 """
-import requests
 import json
+import requests
 import sys
 
 
