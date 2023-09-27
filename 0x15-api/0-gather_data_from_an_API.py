@@ -1,4 +1,7 @@
 #!/usr/bin/python3
+"""
+Collects data from a given api and display it
+"""
 import requests
 import json
 import sys
