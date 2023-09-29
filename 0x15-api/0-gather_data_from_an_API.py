@@ -2,41 +2,28 @@
 """
 Collects data from a given api and display it
 """
+
+from collections import Counter
 import json
 import requests
 import sys
 
 
-def get_employee_todo_progress(employee_id):
-    # Define the base URL for the JSONPlaceholder API
-    base_url = 'https://jsonplaceholder.typicode.com/'
+def fetch_todos(user_id):
+    url = "https://jsonplaceholder.typicode.com/"
 
-    # Fetch user details
-    user_response = requests.get(f'{base_url}users/{employee_id}')
-    user_data = user_response.json()
+    todos_res = requests.get(url + "todos?userId=" + user_id)
+    user_res = requests.get(url + "users/" + user_id).json()
 
-    # Fetch user's TODO list
-    todo_response = requests.get(f'{base_url}todos?userId={employee_id}')
-    todo_data = todo_response.json()
+    if todos_res.status_code == 200:
+        todos = todos_res.json()
 
-    # Calculate the number of completed and total tasks
-    total_tasks = len(todo_data)
-    completed_tasks = sum(1 for task in todo_data if task['completed'])
-
-    # Display the employee's TODO list progress
-    print("Employee {} is done with tasks ({}/{}):"
-          .format(user_data['name'], completed_tasks, total_tasks))
-
-    # Display the titles of completed tasks
-    print("Completed Tasks:")
-    for task in todo_data:
-        if task['completed']:
-            print(f"\t{task['title']}")
+    completed_tasks = [task for task in todos if task['completed']]
+    print("Employee {} is done with tasks({}/{}):"
+          .format(user_res.get("name"), len(completed_tasks), len(todos)))
+    for task in completed_tasks:
+        print("\t{}".format(task.get("title")))
 
 
 if __name__ == "__main__":
-    try:
-        employee_id = sys.argv[1]
-        get_employee_todo_progress(employee_id)
-    except ValueError:
-        print("Please enter a valid integer for the employee ID.")
+    fetch_todos(sys.argv[1])
