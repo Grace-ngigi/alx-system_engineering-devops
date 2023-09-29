@@ -12,7 +12,7 @@ import sys
 def fetch_todos(user_id):
     url = "https://jsonplaceholder.typicode.com/"
 
-    todos_res = requests.get(url + "todos?userId=" + user_id)
+    todos_res = requests.get(url + "todos", params={"userId": user_id})
     user_res = requests.get(url + "users/" + user_id).json()
 
     if todos_res.status_code == 200:
