@@ -17,19 +17,18 @@ Create a json file with all tasks from all employees
     todos = requests.get(base_url + "todos",
                          params={"userId": employee_id}).json()
     username = res.get("username")
-
-    with open("{}.json".format(employee_id), "w") as file:
-        data = {
-                employee_id: [
-                    {
-                        "task": t.get("title"),
-                        "completed": t.get("completed"),
-                        "username": username
-                    }
-                    for t in todos
-                ]
+    data = {
+            employee_id: []
             }
-        file.write(json.dumps(data))
+    for task in todos:
+        tasks = {
+                "task": task["title"],
+                "completed": task["completed"],
+                "username": username
+                }
+        data[employee_id].append(tasks)
+    with open("{}.json".format(employee_id), "w") as file:
+        json.dump(data, file)
 
 
 if __name__ == "__main__":
