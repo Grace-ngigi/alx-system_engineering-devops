@@ -3,7 +3,6 @@
 queries the Reddit API and returns the number of subscribers
 """
 import requests
-import sys
 
 
 def top_ten(subreddit):
@@ -21,8 +20,6 @@ def top_ten(subreddit):
                 title = post['data']['title']
                 print(title)
         else:
-            return None
-    elif res.status_code == 302:
-        return None
+             print("None")
     else:
-        return None
+        print("None")
