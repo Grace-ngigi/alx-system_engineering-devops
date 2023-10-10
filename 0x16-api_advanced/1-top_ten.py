@@ -21,7 +21,7 @@ def top_ten(subreddit):
                 title = post['data']['title']
                 print(title)
         else:
-                return None
+            return None
     elif res.status_code == 302:
         return None
     else:
