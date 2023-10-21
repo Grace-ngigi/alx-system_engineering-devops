@@ -1,4 +1,4 @@
-# reducing the amount of Nginx server failed requests to 0.
+# reducing the amount of Nginx server failed requests to 0
 
 # Increase the limit of the default file
 exec { 'fix--for-nginx':
@@ -8,6 +8,6 @@ exec { 'fix--for-nginx':
 
 # Restart Nginx service
 exec { 'nginx-restart':
-  command => 'nginx restart',
+  command => 'service nginx restart',
   path    => '/etc/init.d/'
 }
