@@ -1,20 +1,13 @@
-class { 'nginx':
-  worker_processes => 'auto',
-  worker_connections => 4096,
-}
+# reducing the amount of Nginx server failed requests to 0.
 
-file { '/etc/security/limits.conf':
-  ensure  => file,
-  content => "* soft nofile 65535\n* hard nofile 65535\n",
-}
+# Increase the limit of the default file
+exec { 'fix--for-nginx':
+  command => 'sed -i "s/15/4096/" /etc/default/nginx',
+  path    => '/usr/local/bin/:/bin/'
+} ->
 
-file { '/etc/sysctl.conf':
-  ensure  => file,
-  content => "net.core.somaxconn = 65535\nnet.ipv4.tcp_max_syn_backlog = 65535\n",
-}
-
-service { 'nginx':
-  ensure    => running,
-  enable    => true,
-  subscribe => File['/etc/nginx/nginx.conf'],
+# Restart Nginx service
+exec { 'nginx-restart':
+  command => 'nginx restart',
+  path    => '/etc/init.d/'
 }
